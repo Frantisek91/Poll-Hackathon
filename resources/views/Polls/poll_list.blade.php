@@ -4,11 +4,13 @@
     
 @foreach ($polls as $poll)
 
-<div class="poll">
+<div class="poll card-header">
+<div class="card-body">
+<h5 class="card-title">{{ $poll->title }}</h5>
+<p class="card-text">{{ $poll->user_id }}</p>
 
-<h2>{{ $poll->user_id }}</h2>
-<h2>{{ $poll->title }}</h2>
-
+<a href= "{{action("PollController@edit", $poll->id)}} ">Edit</a>
+</div>
 </div>
 
 @endforeach

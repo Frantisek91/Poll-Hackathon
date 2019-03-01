@@ -56,7 +56,7 @@ class PollController extends Controller
     {
  
         $polls = Poll::all();
-        return view('polls/poll_list', compact('poll'));
+        return view('polls/poll_list', compact('polls'));
     }
 
     /**
@@ -67,7 +67,9 @@ class PollController extends Controller
      */
     public function edit($id)
     {
-        //
+        $poll = Poll::findOrFail($id);
+
+        return view("polls/poll_edit", compact("poll"));
     }
 
     /**
@@ -79,7 +81,13 @@ class PollController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $poll = Poll::findOrFail($id);
+        $poll->title = $request->title;
+        
+        $poll->save();
+
+        return redirect(action("PollController@index"));
+
     }
 
     /**
