@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Poll;
+use Auth;
 
 class PollController extends Controller
 {
@@ -13,7 +15,9 @@ class PollController extends Controller
      */
     public function index()
     {
-        //
+        $polls = Poll::orderBy("id", "asc")->get();
+
+        return view("Polls/poll_list", compact("polls"));
     }
 
     /**
@@ -23,7 +27,7 @@ class PollController extends Controller
      */
     public function create()
     {
-        //
+        return view("Polls/poll_create");
     }
 
     /**
@@ -34,7 +38,12 @@ class PollController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $poll = new Poll;
+        $poll->title = $request->title;
+        $poll->user_id = Auth::id();
+        $poll->save();
+
+        return redirect(action("PollController@index"));
     }
 
     /**
@@ -48,7 +57,6 @@ class PollController extends Controller
  
         $polls = Poll::all();
         return view('polls/poll_list', compact('poll'));
-    }
     }
 
     /**
