@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PollController extends Controller
+class VoteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -45,10 +45,7 @@ class PollController extends Controller
      */
     public function show($id)
     {
- 
-        $polls = Poll::all();
-        return view('polls/poll_list', compact('poll'));
-    }
+        //
     }
 
     /**
