@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
+use App\Option;
+use App\Vote;
+
 class VoteController extends Controller
 {
     /**
@@ -13,7 +17,8 @@ class VoteController extends Controller
      */
     public function index()
     {
-        //
+        
+
     }
 
     /**
@@ -34,7 +39,16 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $option = Option::find($request->option_id);
+
+        $vote = new Vote();
+        $vote->user_id = Auth::id();
+        $vote->poll_id = $option->poll_id;
+        $vote->option_id = $request->option_id;
+
+        $vote->save();
+
+        return redirect(action(""));
     }
 
     /**
