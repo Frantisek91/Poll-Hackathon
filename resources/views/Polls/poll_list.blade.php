@@ -4,8 +4,6 @@
     
 @foreach ($polls as $poll)
 
-<div class="poll card-header">
-<div class="card-body">
 <h5 class="card-title">{{ $poll->title }}</h5>
 <p class="card-text">{{ $poll->user_id }}</p>
 
@@ -29,20 +27,13 @@
                 </select> --}}
                 
                 @endforeach
-    
-                <button>Vote</button>
+                <button class="btn btn-success" style="text-decoration: none"><a class="btn btn-warning" href= "{{action("PollController@edit", $poll->id)}} ">Edit</a>
+                </button>
+                <button class="btn btn-success" style="text-decoration: none">Vote</button>
             </form>
     
-</div>
 
-
-<a class="btn btn-warning" href= "{{action("PollController@edit", $poll->id)}} ">Edit</a>
-
-
-
-
-</div>
-</div>
+        </div>
 
 @endforeach
 
