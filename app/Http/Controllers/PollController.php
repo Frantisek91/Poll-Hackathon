@@ -15,8 +15,8 @@ class PollController extends Controller
      */
     public function index()
     {
-        $polls = Poll::orderBy("id", "asc")->get();
-
+        $polls = Poll::where("user_id" == Auth::id())->get();
+        dd($polls);
         return view("Polls/poll_list", compact("polls"));
     }
 
