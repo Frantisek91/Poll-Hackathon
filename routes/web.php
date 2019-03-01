@@ -16,5 +16,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/polls', funtion ()
-return view (''))
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
