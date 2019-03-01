@@ -34,6 +34,10 @@
 <a href= "{{action("PollController@edit", $poll->id)}} ">Edit</a>
 </button>
 
+<button type="button" class="btn btn-success" style="text-decoration:none">
+                <a href= "{{action("PollController@edit", $poll->id)}} ">Vote</a>
+                </button>
+
 
 
 </div>
