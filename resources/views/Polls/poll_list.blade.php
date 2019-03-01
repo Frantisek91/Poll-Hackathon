@@ -13,6 +13,16 @@
 </div>
 </div>
 
+@foreach ($options[$poll->id] as $option)
+
+<select class="options">
+<option value="">{{ $option->title }}</option>
+</select>
+
+</div>
+
+@endforeach
+
 @endforeach
 
 @endsection

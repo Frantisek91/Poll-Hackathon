@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Poll;
+use App\Option;
 use Auth;
 
 class PollController extends Controller
@@ -16,8 +17,12 @@ class PollController extends Controller
     public function index()
     {
         $polls = Poll::where("user_id", "=", Auth::id())->get();
+        $options=[];
+        foreach($polls as $poll) {
+            $options[$poll->id] = Option::select('title')->where("poll_id", "=", $poll->id )->get();
+        }
         
-        return view("Polls/poll_list", compact("polls"));
+        return view("Polls/poll_list", compact("polls", "options"));
     }
 
     /**
