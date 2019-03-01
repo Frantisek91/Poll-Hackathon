@@ -7,18 +7,14 @@
 <form action="{{action("PollController@store")}}" method="POST">
     @csrf
 
-<div class="d-flex flex-column p-5">
-    <div class="form-group">
-        <label for="question">Enter Your question</label>
-        <textarea class="form-control" id="new_question" rows="3"></textarea>
-      </div>
+    <div class="d-flex flex-column p-5 form-group">
+    <label for="">Enter your Question</label>
+    <input type="text" name="title" Class="mb-4">
 
-    <button type="submit" class="btn btn-success">Add Question</button>
+    <button type="submit" class="btn btn-warning">Add Question</button>
     
 
 </form>
-</div>
 
 
 @endsection
-

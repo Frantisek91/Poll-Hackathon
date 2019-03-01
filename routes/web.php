@@ -26,3 +26,4 @@ Route::get("/poll/create", "PollController@create");
 Route::post("/poll", "PollController@store")->middleware("auth");
 Route::get("/poll/{id}/edit", "PollController@edit");
 Route::put("/poll/{id}/edit", "PollController@update");
+Route::get("/user", "UserController@index");

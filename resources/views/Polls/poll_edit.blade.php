@@ -8,7 +8,6 @@
 
         <div class="d-flex flex-column p-5 form-group">
         <input class="form-control" type="text" placeholder="Default input" name="title" value="{{$poll->title}}">
-        <textarea class="form-control" id="new_question" rows="3"></textarea>
         
         <button type="submit btn btn-warning">Edit Question</button>
         
