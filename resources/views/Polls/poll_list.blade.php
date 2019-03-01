@@ -5,6 +5,8 @@
 <h2>{{ $poll->user_id }}</h2>
 <h2>{{ $poll->title }}</h2>
 
+<button type="submit" action=" {{action("PollController@edit", $poll->id)}} ">Edit</button>
+
 </div>
 
 @endforeach
