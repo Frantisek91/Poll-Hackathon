@@ -1,3 +1,7 @@
+@extends ('layout/main')
+
+@section('content')
+    
 @foreach ($polls as $poll)
 
 <div class="poll">
@@ -8,3 +12,5 @@
 </div>
 
 @endforeach
+
+@endsection
